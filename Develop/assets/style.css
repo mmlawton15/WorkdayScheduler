@@ -69,3 +69,19 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+/*class for container rows*/
+.containerForScheduler {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.containerForScheduler div {
+  height: 75px;
+  border-radius: 15px;
+  border:grey solid;
+  margin:0 auto;
+  justify-content: left;
+}
+
