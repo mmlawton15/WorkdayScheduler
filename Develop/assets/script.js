@@ -24,8 +24,9 @@ document.getElementById("currentDay").textContent += moment().format('dddd, MMMM
 function getCurrentTime() {
     var date = new Date();
     var currentHour = date.getHours();
-    var currentMinute = date.getMinutes();
-    currentTime = (currentHour + ":" + currentMinute);
+    //var currentMinute = date.getMinutes();
+    //currentTime = parseInt(currentHour + ":" + currentMinute);
+    currentTime = parseInt(currentHour);
     console.log(currentTime);
     timeRightNow = currentTime;
 }
@@ -37,14 +38,14 @@ console.log(numericValueOfTime); //check what the value from the html is reading
 //CHANGE THE COLORS BASED ON THE TIME
 //if the div element's value is less than the current time, make it grey. if it is equal to the current hour, make it red. if it is greater thant he current hour, make it green
 function colorChangeBasedOnTime() {
-    if (currentTime < numericValueOfTime) { //if the crrent time is less than the html element value of time, make it class "future"
-        var rowOfTasks = document.getElementById("timeRow");
+    if (timeRightNow < numericValueOfTime) { //if the crrent time is less than the html element value of time, make the text box class "future"
+        var rowOfTasks = document.getElementById("textArea");
         rowOfTasks.classList.add("future");
-    } else if (currentTime > timeInHTML) { //if the current time is greater than the time value in html, make it class "past"
-        var rowOfTasks = document.getElementById("timeRow");
+    } else if (timeRightNow > numericValueOfTime) { //if the current time is greater than the time value in html, make the text box class "past"
+        var rowOfTasks = document.getElementById("textArea");
         rowOfTasks.classList.add("past");
-    } else { //if the current time matches the html element, make it the class "present"
-        var rowOfTasks = document.getElementById("timeRow");
+    } else if (timeRightNow = numericValueOfTime) { //if the current time matches the html element, make the text box class "present"
+        var rowOfTasks = document.getElementById("textArea");
         rowOfTasks.classList.add("present");
     }
 }
