@@ -5,18 +5,52 @@
 // DONE - THEN I am presented with time blocks for standard business hours
 // DONE - WHEN I view the time blocks for that day
 // THEN each time block is color-coded to indicate whether it is in the past, present, or future
-// WHEN I click into a time block
-// THEN I can enter an event
+// DONE - WHEN I click into a time block
+// DONE - THEN I can enter an event
 // WHEN I click the save button for that time block
 // THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
 
+var timeRightNow;
+var timeInHTML = document.getElementById("timeRow").innerHTML; //get the value of time in from the HTML
+var numericValueOfTime = parseInt(timeInHTML); //convert it to a numeric value
+
 
 //CURRENT TIME
 document.getElementById("currentDay").textContent += moment().format('dddd, MMMM Do YYYY');
 
-//COLUMNS FOR THE SCHEDULER
+//RETRIEVE THE CURRENT TIME IN PREPARATION FOR THE COLORS
+function getCurrentTime() {
+    var date = new Date();
+    var currentHour = date.getHours();
+    var currentMinute = date.getMinutes();
+    currentTime = (currentHour + ":" + currentMinute);
+    console.log(currentTime);
+    timeRightNow = currentTime;
+}
+console.log(numericValueOfTime); //check what the value from the html is reading as
 
 
+
+
+//CHANGE THE COLORS BASED ON THE TIME
+//if the div element's value is less than the current time, make it grey. if it is equal to the current hour, make it red. if it is greater thant he current hour, make it green
+function colorChangeBasedOnTime() {
+    if (currentTime < numericValueOfTime) { //if the crrent time is less than the html element value of time, make it class "future"
+        var rowOfTasks = document.getElementById("timeRow");
+        rowOfTasks.classList.add("future");
+    } else if (currentTime > timeInHTML) { //if the current time is greater than the time value in html, make it class "past"
+        var rowOfTasks = document.getElementById("timeRow");
+        rowOfTasks.classList.add("past");
+    } else { //if the current time matches the html element, make it the class "present"
+        var rowOfTasks = document.getElementById("timeRow");
+        rowOfTasks.classList.add("present");
+    }
+}
+
+
+
+getCurrentTime();
+colorChangeBasedOnTime();
 
