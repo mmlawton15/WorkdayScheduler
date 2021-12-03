@@ -12,9 +12,34 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
+
+var date = new Date();
+var currentHour = date.getHours();
 var timeRightNow;
-var timeInHTML = document.getElementById("timeRow").innerHTML; //get the value of time in from the HTML
-var numericValueOfTime = parseInt(timeInHTML); //convert it to a numeric value
+
+
+//var timeInHTML = document.getElementById("timeRow").innerHTML; //get the value of time in from the HTML
+//var numericValueOfTime = parseInt(timeInHTML); //convert it to a numeric value
+
+for (var i = 9; i< 18; i++) {
+    console.log(currentHour);
+    var currentElementValue = document.getElementById("textArea-" + i);
+    console.log(currentElementValue);
+    if (i < currentHour) {
+        currentElementValue.classList.add("past");
+    } else if (i == currentHour) {
+        currentElementValue.classList.add("present");
+    } else {
+        currentElementValue.classList.add("future");
+    }
+
+    // console.log(document.getElementById("timeRow-" + i).value);
+}
+
+
+
+
+
 
 
 //CURRENT TIME
@@ -22,10 +47,6 @@ document.getElementById("currentDay").textContent += moment().format('dddd, MMMM
 
 //RETRIEVE THE CURRENT TIME IN PREPARATION FOR THE COLORS
 function getCurrentTime() {
-    var date = new Date();
-    var currentHour = date.getHours();
-    //var currentMinute = date.getMinutes();
-    //currentTime = parseInt(currentHour + ":" + currentMinute);
     currentTime = parseInt(currentHour);
     console.log(currentTime);
     timeRightNow = currentTime;
