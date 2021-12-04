@@ -4,7 +4,7 @@
 // DONE - WHEN I scroll down
 // DONE - THEN I am presented with time blocks for standard business hours
 // DONE - WHEN I view the time blocks for that day
-// THEN each time block is color-coded to indicate whether it is in the past, present, or future
+// DONE - THEN each time block is color-coded to indicate whether it is in the past, present, or future
 // DONE - WHEN I click into a time block
 // DONE - THEN I can enter an event
 // WHEN I click the save button for that time block
@@ -16,31 +16,22 @@
 var date = new Date();
 var currentHour = date.getHours();
 var timeRightNow;
-
-
 //var timeInHTML = document.getElementById("timeRow").innerHTML; //get the value of time in from the HTML
 //var numericValueOfTime = parseInt(timeInHTML); //convert it to a numeric value
 
-for (var i = 9; i< 18; i++) {
-    console.log(currentHour);
-    var currentElementValue = document.getElementById("textArea-" + i);
-    console.log(currentElementValue);
-    if (i < currentHour) {
-        currentElementValue.classList.add("past");
-    } else if (i == currentHour) {
-        currentElementValue.classList.add("present");
-    } else {
-        currentElementValue.classList.add("future");
+
+function colorChangeBasedOnTime() {
+    for (var i = 9; i< 18; i++) {
+        var currentElementValue = document.getElementById("textArea-" + i);
+        if (i < currentHour) {
+            currentElementValue.classList.add("past");
+        } else if (i == currentHour) {
+            currentElementValue.classList.add("present");
+        } else {
+            currentElementValue.classList.add("future");
+        }
     }
-
-    // console.log(document.getElementById("timeRow-" + i).value);
 }
-
-
-
-
-
-
 
 //CURRENT TIME
 document.getElementById("currentDay").textContent += moment().format('dddd, MMMM Do YYYY');
@@ -51,28 +42,49 @@ function getCurrentTime() {
     console.log(currentTime);
     timeRightNow = currentTime;
 }
-console.log(numericValueOfTime); //check what the value from the html is reading as
 
+//SAVE THE DATA ENTERED INTO LOCAL STORAGE
+//add an event listener to the save button so when the save button is clicked, it sends the value in the div to local storage
 
+//window.localStorage.setItem('task');
 
-
-//CHANGE THE COLORS BASED ON THE TIME
-//if the div element's value is less than the current time, make it grey. if it is equal to the current hour, make it red. if it is greater thant he current hour, make it green
-function colorChangeBasedOnTime() {
-    if (timeRightNow < numericValueOfTime) { //if the crrent time is less than the html element value of time, make the text box class "future"
-        var rowOfTasks = document.getElementById("textArea");
-        rowOfTasks.classList.add("future");
-    } else if (timeRightNow > numericValueOfTime) { //if the current time is greater than the time value in html, make the text box class "past"
-        var rowOfTasks = document.getElementById("textArea");
-        rowOfTasks.classList.add("past");
-    } else if (timeRightNow = numericValueOfTime) { //if the current time matches the html element, make the text box class "present"
-        var rowOfTasks = document.getElementById("textArea");
-        rowOfTasks.classList.add("present");
+function saveTasksToLocalStorage() {
+    for (var i = 9; i<18; i++) {
+        var currentTaskElementValue = document.getElementById("textArea" + i).textContent; //similar code to the colorChangeBasedOnTime to get the text content of each task div
     }
+    //when the save button is clicked, take the text from the div and save it to local storage
+        document.getElementById("saveButton").addEventListener("click", function() {
+            console.log("save button was clicked"); //check the button works
+            if (currentTaskElementValue !== null) { //if the text in the div element has substance
+                localStorage.task = currentTaskElementValue; //set local storage.task key to be the value of the div element
+            }
+        
+        })
+    
 }
+
+
+
+//console.log(numericValueOfTime); //check what the value from the html is reading as
+// function colorChangeBasedOnTime() {
+//     if (timeRightNow < numericValueOfTime) { //if the crrent time is less than the html element value of time, make the text box class "future"
+//         var rowOfTasks = document.getElementById("textArea");
+//         rowOfTasks.classList.add("future");
+//     } else if (timeRightNow > numericValueOfTime) { //if the current time is greater than the time value in html, make the text box class "past"
+//         var rowOfTasks = document.getElementById("textArea");
+//         rowOfTasks.classList.add("past");
+//     } else if (timeRightNow = numericValueOfTime) { //if the current time matches the html element, make the text box class "present"
+//         var rowOfTasks = document.getElementById("textArea");
+//         rowOfTasks.classList.add("present");
+//     }
+// }
+
+
+
+
 
 
 
 getCurrentTime();
 colorChangeBasedOnTime();
-
+saveTasksToLocalStorage();
