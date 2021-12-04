@@ -43,21 +43,36 @@ function getCurrentTime() {
 
 //SAVE THE DATA ENTERED INTO LOCAL STORAGE
 //add an event listener to the save button so when the save button is clicked, it sends the value in the div to local storage
-//window.localStorage.setItem('task');
+
+
 function saveTasksToLocalStorage() {
-    for (var i = 9; i<18; i++) {
-        var currentTaskElementValue = document.getElementById("textArea" + i).textContent; //similar code to the colorChangeBasedOnTime to get the text content of each task div
-    }
     //when the save button is clicked, take the text from the div and save it to local storage
-        document.getElementById("saveButton").addEventListener("click", function() {
-            console.log("save button was clicked"); //check the button works
-            if (currentTaskElementValue !== null) { //if the text in the div element has substance
-                localStorage.task = currentTaskElementValue; //set local storage.task key to be the value of the div element
-            }
-        
-        })
-    
+    document.getElementById("saveButton").addEventListener("click", function() {
+        console.log("save button was clicked"); //check the button works
+
+    })
+    for (var i = 9; i<18; i++) {
+        var currentTaskElementValue = document.getElementById("textArea" + i); //similar code to the colorChangeBasedOnTime to get the text content of each task div
+        if (currentTaskElementValue !== null) { //if the text in the div element has substance
+            localStorage.setItem('task', JSON.stringify(currentTaskElementValue)); //convert that input into a string and save it as a task in local storage
+            currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
+
+            //localStorage.task = currentTaskElementValue.textContent; //set local storage.task key to be the value of the div element
+            
+        }
+    }
 }
+
+
+function saveTasksToStorageAskBcs () {
+
+}
+
+
+
+
+
+
 
 getCurrentTime();
 colorChangeBasedOnTime();
