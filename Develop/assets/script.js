@@ -56,7 +56,7 @@ function saveTasksToLocalStorage() {
         if (currentTaskElementValue !== null) { //if the text in the div element has substance
             localStorage.setItem('task', JSON.stringify(currentTaskElementValue)); //convert that input into a string and save it as a task in local storage
             currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
-
+            console.log(currentTaskElementValue);
             //localStorage.task = currentTaskElementValue.textContent; //set local storage.task key to be the value of the div element
             
         }
