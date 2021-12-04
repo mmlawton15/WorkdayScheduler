@@ -12,7 +12,6 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
-
 var date = new Date();
 var currentHour = date.getHours();
 var timeRightNow;
@@ -45,12 +44,9 @@ function getCurrentTime() {
 //add an event listener to the save button so when the save button is clicked, it sends the value in the div to local storage
 
 
-function saveTasksToLocalStorage() {
+function saveTasksToLocalStorage(event) {
     //when the save button is clicked, take the text from the div and save it to local storage
-    document.getElementById("saveButton").addEventListener("click", function() {
-        console.log("save button was clicked"); //check the button works
-
-    })
+    console.log("save button was clicked"); //check the button works
     for (var i = 9; i<18; i++) {
         var currentTaskElementValue = document.getElementById("textArea" + i); //similar code to the colorChangeBasedOnTime to get the text content of each task div
         if (currentTaskElementValue !== null) { //if the text in the div element has substance
@@ -58,20 +54,15 @@ function saveTasksToLocalStorage() {
             currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
             console.log(currentTaskElementValue);
             //localStorage.task = currentTaskElementValue.textContent; //set local storage.task key to be the value of the div element
-            
         }
     }
 }
 
 
-function saveTasksToStorageAskBcs () {
-
-}
-
-
-
-
-
+document.querySelector(".saveButton").addEventListener("click", saveTasksToLocalStorage); //select any element that has the save button class. inside this funciton, get the event target
+//get that target and save to local storage
+//get the event target, do a console log for the event target and get the data from it to save to local storage
+//event target . something with a value and then get the value thats in there
 
 
 getCurrentTime();
