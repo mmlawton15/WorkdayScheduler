@@ -59,7 +59,11 @@ function saveTasksToLocalStorage(event) {
 }
 
 
-document.querySelector(".saveButton").addEventListener("click", saveTasksToLocalStorage); //select any element that has the save button class. inside this funciton, get the event target
+document.querySelectorAll("#saveButton").addEventListener("click", saveTasksToLocalStorage); //select any element that has the saveButton ID. inside this funciton, get the event target
+
+
+
+
 //get that target and save to local storage
 //get the event target, do a console log for the event target and get the data from it to save to local storage
 //event target . something with a value and then get the value thats in there
@@ -67,4 +71,4 @@ document.querySelector(".saveButton").addEventListener("click", saveTasksToLocal
 
 getCurrentTime();
 colorChangeBasedOnTime();
-saveTasksToLocalStorage();
+//saveTasksToLocalStorage();
