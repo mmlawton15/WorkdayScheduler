@@ -42,8 +42,6 @@ function getCurrentTime() {
 
 //SAVE THE DATA ENTERED INTO LOCAL STORAGE
 //add an event listener to the save button so when the save button is clicked, it sends the value in the div to local storage
-
-
 function saveTasksToLocalStorage(event) {
     //when the save button is clicked, take the text from the div and save it to local storage
     console.log("save button was clicked"); //check the button works
@@ -58,10 +56,11 @@ function saveTasksToLocalStorage(event) {
     }
 }
 
-
-document.querySelectorAll("#saveButton").addEventListener("click", saveTasksToLocalStorage); //select any element that has the saveButton ID. inside this funciton, get the event target
-
-
+//FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
+var arrayOfButtons = document.getElementsByClassName("saveBtn");
+for (var i = 0; i<arrayOfButtons.length; i++){
+    arrayOfButtons[i].addEventListener('click', saveTasksToLocalStorage)
+}
 
 
 //get that target and save to local storage
