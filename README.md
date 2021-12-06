@@ -8,7 +8,7 @@ The idea is that you can log tasks you need to do each hour, and that these task
 I built this primarily from HTML and Javascript, and styled it with some CSS classes and a bit of bootstrap.
 
 ## Where can I find this page?
-You can find this at my Github repository (https://github.com/mmlawton15/challenge-five-disco) or at the live url (https://mmlawton15.github.io/challenge-five-disco/)
+You can find this at my Github repository (https://github.com/mmlawton15/challenge-five-disco) or at the live url (https://mmlawton15.github.io/challenge-five-disco/).
 
 ## What does it look like?
 ![image](Develop/assets/workDayScreenshot.jpg)
