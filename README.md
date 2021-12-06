@@ -11,3 +11,4 @@ I built this primarily from HTML and Javascript, and styled it with some CSS cla
 You can find this at my Github repository (https://github.com/mmlawton15/challenge-five-disco)
 
 ## What does it look like?
+![image](Develop/assets/workDayScreenshot.jpg)
