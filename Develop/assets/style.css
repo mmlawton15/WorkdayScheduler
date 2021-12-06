@@ -17,7 +17,6 @@ textarea{
   text-align: center;
   background-color: transparent;
   color: black;
-  border-radius: 0;
   border-bottom: 10px solid black;
 }
 
@@ -28,7 +27,6 @@ textarea{
 /*formatting for the rows*/
 .time-block{
   text-align: center;
-  border-radius: 15px;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -82,7 +80,7 @@ textarea{
 
 .containerForScheduler div {
   height: 75px;
-  border:grey solid;
+  border-top: grey solid;
   margin:0 auto;
   justify-content: left;
 }
