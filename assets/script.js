@@ -46,9 +46,15 @@ for (var i = 0; i<arrayOfButtons.length; i++){
 }
 
 //SAVE BUTTON TO LS CODE
-function saveTasksToLocalStorage() {
-    var currentTaskElementValue = document.getElementsByClassName("noteDescription").value;
+function saveTasksToLocalStorage(event) {
+    var currentTaskElementValue = document.getElementsByClassName("noteDescription").value; //
     //var stringValue = JSON.stringify(currentTaskElementValue);
+    console.log(event);
+    console.log(event.target.id);
+    // get only the number off the id of the save button (because thats what gives you event targetr). 
+    //once i get that number, use that number in a selector to target corresponding text area
+    let Apples = 9;
+    document.querySelector(`textArea-${Apples}`)//template literals
     console.log(currentTaskElementValue);
 }
 
