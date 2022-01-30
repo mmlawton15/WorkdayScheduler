@@ -40,24 +40,15 @@ function getCurrentTime() {
     timeRightNow = currentTime;
 }
 
-//SAVE THE DATA ENTERED INTO LOCAL STORAGE
-//when the save button is clicked, it sends the value in the div to local storage
-function saveTasksToLocalStorage(event) {
+//SAVE BUTTON EVENT LISTENER CODE
+saveBtn.addEventListener("click", saveTasksToLocalStorage);
 
-    //for (var i = 9; i<18; i++) {
-        // use the event to find out which button was clicked
+function saveTasksToLocalStorage() {
 
-        // reach into the html to grab that button corresponding text area
-        var currentTaskElementValue = document.getElementById("textArea-"); //get the text content of each task div
-        console.log(currentTaskElementValue) // sanity check
-        if (currentTaskElementValue !== null) { //if the text in the div element has substance
-            localStorage.setItem('task', JSON.stringify(currentTaskElementValue)); //convert that input into a string and save it as a task in local storage
-            currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
-            console.log(currentTaskElementValue);
-            //localStorage.task = currentTaskElementValue.textContent; //set local storage.task key to be the value of the div element
-        }
-    //}
 }
+
+
+
 
 //FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
 var arrayOfButtons = document.getElementsByClassName("saveBtn");
@@ -72,4 +63,29 @@ for (var i = 0; i<arrayOfButtons.length; i++){
 
 getCurrentTime();
 colorChangeBasedOnTime();
-saveTasksToLocalStorage();
+//saveTasksToLocalStorage();
+
+
+
+
+
+
+
+// //SAVE THE DATA ENTERED INTO LOCAL STORAGE
+// //when the save button is clicked, it sends the value in the div to local storage
+// function saveTasksToLocalStorage(event) {
+
+//     //for (var i = 9; i<18; i++) {
+//         // use the event to find out which button was clicked
+
+//         // reach into the html to grab that button corresponding text area
+//         var currentTaskElementValue = document.getElementById("textArea-"); //get the text content of each task div
+//         console.log(currentTaskElementValue) // sanity check
+//         if (currentTaskElementValue !== null) { //if the text in the div element has substance
+//             localStorage.setItem('task', JSON.stringify(currentTaskElementValue)); //convert that input into a string and save it as a task in local storage
+//             currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
+//             console.log(currentTaskElementValue);
+//             //localStorage.task = currentTaskElementValue.textContent; //set local storage.task key to be the value of the div element
+//         }
+//     //}
+// }
