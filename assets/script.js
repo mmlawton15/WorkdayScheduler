@@ -70,7 +70,6 @@ for (var i = 0; i<arrayOfButtons.length; i++){
 //get the event target, do a console log for the event target and get the data from it to save to local storage
 //event target . something with a value and then get the value thats in there
 
-
 getCurrentTime();
 colorChangeBasedOnTime();
-//saveTasksToLocalStorage();
+saveTasksToLocalStorage();
