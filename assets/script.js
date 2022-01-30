@@ -48,8 +48,8 @@ function saveTasksToLocalStorage(event) {
         // use the event to find out which button was clicked
 
         // reach into the html to grab that button corresponding text area
-        var currentTaskElementValue = document.getElementsByClassName("row align-items-center col-1 time-block"); //get the text content of each task div
-        console.log(stringCurrentTaskElementValue) // sanity check
+        var currentTaskElementValue = document.getElementById("textArea-"); //get the text content of each task div
+        console.log(currentTaskElementValue) // sanity check
         if (currentTaskElementValue !== null) { //if the text in the div element has substance
             localStorage.setItem('task', JSON.stringify(currentTaskElementValue)); //convert that input into a string and save it as a task in local storage
             currentTaskElementValue.textContent = JSON.parse(localStorage.getItem('task')); //turn that item back into an object and make it appear on the screen by turning it into the text content of the div
