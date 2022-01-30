@@ -15,7 +15,6 @@
 var date = new Date();
 var currentHour = date.getHours();
 var timeRightNow;
-var localStorageArray = [];
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
@@ -40,21 +39,20 @@ function getCurrentTime() {
     timeRightNow = currentTime;
 }
 
-//SAVE BUTTON EVENT LISTENER CODE
-saveBtn.addEventListener("click", saveTasksToLocalStorage);
-
-function saveTasksToLocalStorage() {
-
-}
-
-
-
-
 //FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
 var arrayOfButtons = document.getElementsByClassName("saveBtn");
 for (var i = 0; i<arrayOfButtons.length; i++){
     arrayOfButtons[i].addEventListener('click', saveTasksToLocalStorage);
 }
+
+//SAVE BUTTON TO LS CODE
+function saveTasksToLocalStorage() {
+    var currentTaskElementValue = document.getElementsByClassName("noteDescription").value;
+    //var stringValue = JSON.stringify(currentTaskElementValue);
+    console.log(currentTaskElementValue);
+}
+
+
 
 
 //get that target and save to local storage
