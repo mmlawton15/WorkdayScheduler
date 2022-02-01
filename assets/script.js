@@ -50,7 +50,7 @@ function saveTasksToLocalStorage(event) {
     var currentTaskElementValue = document.getElementsByClassName("noteDescription").value; //
     //var stringValue = JSON.stringify(currentTaskElementValue);
     console.log(event);
-    console.log(event.target.id);
+    console.log(event.target.id); //slice substring or replace
     // get only the number off the id of the save button (because thats what gives you event targetr). 
     //once i get that number, use that number in a selector to target corresponding text area
     let Apples = 9;
