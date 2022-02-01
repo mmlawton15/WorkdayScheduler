@@ -47,16 +47,16 @@ for (var i = 0; i<arrayOfButtons.length; i++){
 
 //SAVE BUTTON TO LS CODE
 function saveTasksToLocalStorage(event) {
-    var currentTaskElementValue = document.getElementsByClassName("noteDescription").value; //
+    
     //var stringValue = JSON.stringify(currentTaskElementValue);
     console.log(event);
     console.log(event.target.id); //slice substring or replace
     let text = event.target.id;
     let numberID = text.replace("saveButton-", "");
-    console.timeLog(numberID);
-    // get only the number off the id of the save button (because thats what gives you event targetr). 
     //once i get that number, use that number in a selector to target corresponding text area
-    document.querySelector(`textArea-${numberID}`)//template literals
+    var currentTaskElementValue = document.getElementsByClassName(`noteDescription-${numberID}`).value; //
+    let textArea = document.querySelector(`textArea-${numberID}`)//template literals
+    console.log(textArea);
     console.log(currentTaskElementValue);
 }
 
