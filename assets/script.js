@@ -18,7 +18,7 @@ var timeRightNow;
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
-        var currentElementValue = document.getElementById("textArea-" + i);
+        var currentElementValue = document.getElementById("timeRow-" + i);
         if (i < currentHour) {
             currentElementValue.classList.add("past");
         } else if (i == currentHour) {
@@ -47,17 +47,16 @@ for (var i = 0; i<arrayOfButtons.length; i++){
 
 //SAVE BUTTON TO LS CODE
 function saveTasksToLocalStorage(event) {
-    
     //var stringValue = JSON.stringify(currentTaskElementValue);
     console.log(event);
     console.log(event.target.id); //slice substring or replace
     let text = event.target.id;
     let numberID = text.replace("saveButton-", "");
     //once i get that number, use that number in a selector to target corresponding text area
-    var currentTaskElementValue = document.getElementsByClassName(`noteDescription-${numberID}`).value; //
-    let textArea = document.querySelector(`textArea-${numberID}`)//template literals
-    console.log(textArea);
-    console.log(currentTaskElementValue);
+    //var currentTaskElementValue = document.getElementsByClassName(`noteDescription-${numberID}`).value; //
+    console.log(document.querySelector(`#textArea-${numberID}`))//template literals
+    console.log(textArea);//NEED TO ADD A 0 TO THE ID OF THE ELEMENT, WIHTOUT IT IT TURNS OFF THE CLASS
+    //console.log(currentTaskElementValue);
 }
 
 
