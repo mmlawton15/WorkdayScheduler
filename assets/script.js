@@ -1,5 +1,3 @@
-// WHEN I click the save button for that time block
-// THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
 
@@ -41,6 +39,15 @@ function saveTasksToLocalStorage(event) {
             localStorage.setItem("tasks"+i, currentTaskElementValue);
         }
     }
+}
+
+//LOAD ALL THE TASKS FROM LOCAL STORAGE
+var loadTasks = function() {
+    var savedTasks = localStorage.getItem("tasks");
+    if (!savedTasks) {
+        return false;
+    }
+    console.log("Loading saved tasks");
 }
 
 //FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
