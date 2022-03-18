@@ -48,6 +48,10 @@ var loadTasks = function() {
         return false;
     }
     console.log("Loading saved tasks");
+
+    for (var i=9; i<savedTasks.length; i++) {
+        //NEED TO MAKE IT PERSIST HERE
+    }
 }
 
 //FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
