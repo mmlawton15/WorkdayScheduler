@@ -1,10 +1,8 @@
-// WHEN I refresh the page
-// THEN the saved events persist
-
 var date = new Date();
 var currentHour = date.getHours();
 var timeRightNow;
 var localStorageArray = [];
+var timeBlocks = document.getElementsByClassName("time-block");
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
