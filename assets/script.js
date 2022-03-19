@@ -1,19 +1,14 @@
 var date = new Date();
 var currentHour = date.getHours();
 var timeRightNow;
-var localStorageArray = [];
-var timeBlocks = document.getElementsByClassName("time-block");
 var noteBlocks = document.getElementsByClassName("noteDescription");
 var saveButtonElements = document.getElementsByClassName("saveBtn");
-//var emptyObject = {};
 
-//LEFT OFF HERE
 for (let i=0; i<saveButtonElements.length; i++) {
     let button = saveButtonElements[i];
     button.addEventListener("click", function(e) {
         var clickTextContent = button.parentElement.previousElementSibling.closest(".noteDescription").textContent;
         var timeBlockId = button.parentElement.parentElement.firstElementChild.getAttribute("id").split("-")[1];
-        //emptyObject.id= timeBlockId;
         localStorage.setItem(timeBlockId, clickTextContent);
     });
 }
@@ -48,8 +43,7 @@ function saveTasksToLocalStorage() {
     }
 }
 
-
-//CODE TO SET THE DIV ELEMENT TO THE LOCAL STORAGE
+//CODE TO SET THE DIV ELEMENT TO THE LOCAL STORAGE VALUE ON PAGE LOAD
 let timeBlockNine = document.getElementById('textArea-9');
 timeBlockNine.textContent = localStorage.getItem("9");
 
