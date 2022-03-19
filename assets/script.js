@@ -48,9 +48,10 @@ var loadTasks = function() {
         return false;
     }
     console.log("Loading saved tasks");
-
+    savedTasks = JSON.parse(savedTasks);
     for (var i=9; i<savedTasks.length; i++) {
         //NEED TO MAKE IT PERSIST HERE
+        saveTasksToLocalStorage(savedTasks[i]);
     }
 }
 
