@@ -3,6 +3,13 @@ var currentHour = date.getHours();
 var timeRightNow;
 var localStorageArray = [];
 var timeBlocks = document.getElementsByClassName("time-block");
+var noteBlocks = document.getElementsByClassName("noteDescription");
+var saveButtonElement = document.getElementsByClassName("saveBtn");
+console.log(saveButtonElement);
+
+saveButtonElement.addEventListener("click", function(event) {
+    console.log("clicked");
+})
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
@@ -28,13 +35,12 @@ function getCurrentTime() {
 }
 
 //SAVE THE DATA ENTERED INTO LOCAL STORAGE
-function saveTasksToLocalStorage(event) {
-    for (var i = 9; i<18; i++) {
-        var currentTaskElementValue = document.getElementById("textArea-"+i).textContent;
-        console.log(currentTaskElementValue)
-        if (currentTaskElementValue !== null) {
-            localStorage.task = currentTaskElementValue.textContent;
-            localStorage.setItem("tasks"+i, currentTaskElementValue);
+function saveTasksToLocalStorage() {
+    for (var i=0; i<=noteBlocks.length; i++) {
+        console.log(noteBlocks[i]);
+        if (noteBlocks[i] !== null) {
+            //localStorage.setItem("tasks", noteBlocks.textContent);
+            console.log("noteBlocks[i].textContent", noteBlocks[i].textContent);
         }
     }
 }
@@ -59,6 +65,7 @@ for (var i = 0; i<arrayOfButtons.length; i++){
     arrayOfButtons[i].addEventListener('click', saveTasksToLocalStorage);
 }
 
+loadTasks();
 getCurrentTime();
 colorChangeBasedOnTime();
 saveTasksToLocalStorage();
