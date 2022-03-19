@@ -4,12 +4,25 @@ var timeRightNow;
 var localStorageArray = [];
 var timeBlocks = document.getElementsByClassName("time-block");
 var noteBlocks = document.getElementsByClassName("noteDescription");
-var saveButtonElement = document.getElementsByClassName("saveBtn");
-console.log(saveButtonElement);
+var saveButtonElements = document.getElementsByClassName("saveBtn");
 
-saveButtonElement.addEventListener("click", function(event) {
-    console.log("clicked");
-})
+for (let i=0; i<saveButtonElements.length; i++) {
+    let button = saveButtonElements[i];
+    console.log(button);
+}
+
+
+console.log(saveButtonElements);
+
+// saveButtonElements.addEventListener("click", function(event) {
+//     saveButtonElements.forEach(saveButtonFunction);
+//     function saveButtonFunction() {
+
+//     }
+//     console.log("clicked");
+// })
+
+
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
