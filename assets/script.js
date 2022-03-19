@@ -5,24 +5,18 @@ var localStorageArray = [];
 var timeBlocks = document.getElementsByClassName("time-block");
 var noteBlocks = document.getElementsByClassName("noteDescription");
 var saveButtonElements = document.getElementsByClassName("saveBtn");
+//var emptyObject = {};
 
+//LEFT OFF HERE
 for (let i=0; i<saveButtonElements.length; i++) {
     let button = saveButtonElements[i];
-    console.log(button);
+    button.addEventListener("click", function(e) {
+        var clickTextContent = button.parentElement.previousElementSibling.closest(".noteDescription").textContent;
+        var timeBlockId = button.parentElement.parentElement.firstElementChild.getAttribute("id").split("-")[1];
+        //emptyObject.id= timeBlockId;
+        localStorage.setItem(timeBlockId, clickTextContent);
+    });
 }
-
-
-console.log(saveButtonElements);
-
-// saveButtonElements.addEventListener("click", function(event) {
-//     saveButtonElements.forEach(saveButtonFunction);
-//     function saveButtonFunction() {
-
-//     }
-//     console.log("clicked");
-// })
-
-
 
 function colorChangeBasedOnTime() {
     for (var i = 9; i< 18; i++) {
@@ -43,42 +37,46 @@ document.getElementById("currentDay").textContent += moment().format('dddd, MMMM
 //RETRIEVE THE CURRENT TIME IN PREPARATION FOR THE COLORS
 function getCurrentTime() {
     currentTime = parseInt(currentHour);
-    console.log(currentTime);
     timeRightNow = currentTime;
 }
 
 //SAVE THE DATA ENTERED INTO LOCAL STORAGE
 function saveTasksToLocalStorage() {
     for (var i=0; i<=noteBlocks.length; i++) {
-        console.log(noteBlocks[i]);
         if (noteBlocks[i] !== null) {
-            //localStorage.setItem("tasks", noteBlocks.textContent);
-            console.log("noteBlocks[i].textContent", noteBlocks[i].textContent);
         }
     }
 }
 
-//LOAD ALL THE TASKS FROM LOCAL STORAGE
-var loadTasks = function() {
-    var savedTasks = localStorage.getItem("tasks");
-    if (!savedTasks) {
-        return false;
-    }
-    console.log("Loading saved tasks");
-    savedTasks = JSON.parse(savedTasks);
-    for (var i=9; i<savedTasks.length; i++) {
-        //NEED TO MAKE IT PERSIST HERE
-        saveTasksToLocalStorage(savedTasks[i]);
-    }
-}
 
-//FOR LOOP TO FILTER THROUGH ALL THE HTML BUTTONS AND ADD EVENT LISTENERS
-var arrayOfButtons = document.getElementsByClassName("saveBtn");
-for (var i = 0; i<arrayOfButtons.length; i++){
-    arrayOfButtons[i].addEventListener('click', saveTasksToLocalStorage);
-}
+//CODE TO SET THE DIV ELEMENT TO THE LOCAL STORAGE
+let timeBlockNine = document.getElementById('textArea-9');
+timeBlockNine.textContent = localStorage.getItem("9");
 
-loadTasks();
+let timeBlockTen = document.getElementById('textArea-10');
+timeBlockTen.textContent = localStorage.getItem("10");
+
+let timeBlockEleven = document.getElementById('textArea-11');
+timeBlockEleven.textContent = localStorage.getItem("11");
+
+let timeBlockTwelve = document.getElementById('textArea-12');
+timeBlockTwelve.textContent = localStorage.getItem("12");
+
+let timeBlockThirteen = document.getElementById('textArea-13');
+timeBlockThirteen.textContent = localStorage.getItem("13");
+
+let timeBlockFourteen = document.getElementById('textArea-14');
+timeBlockFourteen.textContent = localStorage.getItem("14");
+
+let timeBlockFifteen = document.getElementById('textArea-15');
+timeBlockFifteen.textContent = localStorage.getItem("15");
+
+let timeBlockSixteen = document.getElementById('textArea-16');
+timeBlockSixteen.textContent = localStorage.getItem("16");
+
+let timeBlockSeventeen = document.getElementById('textArea-17');
+timeBlockSeventeen.textContent = localStorage.getItem("17");
+
 getCurrentTime();
 colorChangeBasedOnTime();
 saveTasksToLocalStorage();
